@@ -1,6 +1,4 @@
-import React from 'react'
-import styles from './styles.module.css'
+import { Modal } from './Modal';
+import { useModal } from './useModal';
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export { Modal, useModal };

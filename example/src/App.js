@@ -1,10 +1,16 @@
-import React from 'react'
-
-import { ExampleComponent } from 'tnw-modal-library'
-import 'tnw-modal-library/dist/index.css'
+import React from 'react';
+import { Modal, useModal } from 'tnw-modal-library';
+import 'tnw-modal-library/dist/index.css';
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
-}
+  const { isShowing, toggle } = useModal();
+  return (
+    <div className='container'>
+      <h1>Example Modale React</h1>
+      <button onClick={toggle}>Toggle Modal</button>
+      <Modal isShowing={isShowing} hide={toggle} />
+    </div>
+  );
+};
 
-export default App
+export default App;

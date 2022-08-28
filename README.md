@@ -13,18 +13,24 @@ npm install --save tnw-modal-library
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react';
+import { Modal, useModal } from 'tnw-modal-library';
+import 'tnw-modal-library/dist/index.css';
 
-import MyComponent from 'tnw-modal-library'
-import 'tnw-modal-library/dist/index.css'
+const App = () => {
+  const { isShowing, toggle } = useModal();
+  return (
+    <div className='container'>
+      <h1>Example Modale React</h1>
+      <button onClick={toggle}>Toggle Modal</button>
+      <Modal isShowing={isShowing} hide={toggle} />
+    </div>
+  );
+};
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+export default App;
 ```
 
 ## License
 
- © [thucnhi-wiedenhofer](https://github.com/thucnhi-wiedenhofer)
+© [thucnhi-wiedenhofer](https://github.com/thucnhi-wiedenhofer)
