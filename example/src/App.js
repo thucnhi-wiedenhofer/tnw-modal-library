@@ -20,13 +20,20 @@ const toggleButtonStyle = {
 
 const App = () => {
   const { isShowing, toggle } = useModal();
+  const title = 'Title';
+  const message = 'Show modal!';
   return (
     <div style={containerStyle}>
       <h1>My own React Modal</h1>
       <button style={toggleButtonStyle} onClick={toggle}>
         Toggle Modal
       </button>
-      <Modal isShowing={isShowing} close={toggle} />
+      <Modal
+        isShowing={isShowing}
+        close={toggle}
+        title={title}
+        message={message}
+      />
     </div>
   );
 };

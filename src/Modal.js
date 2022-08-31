@@ -68,7 +68,7 @@ const modalBodyStyle = {
   padding: '1rem'
 };
 
-export const Modal = ({ isShowing, close, title, ...props }) =>
+export const Modal = ({ isShowing, close, title, message }) =>
   isShowing
     ? ReactDOM.createPortal(
         <div style={modalOverlayStyle}>
@@ -76,7 +76,7 @@ export const Modal = ({ isShowing, close, title, ...props }) =>
             <div style={modalStyle}>
               <div style={modalContentStyle}>
                 <div style={modalHeaderStyle}>
-                  <h4>{title}</h4>
+                  <h3>{title}</h3>
                   <button
                     type='button'
                     style={CloseButtonStyle}
@@ -85,7 +85,9 @@ export const Modal = ({ isShowing, close, title, ...props }) =>
                     <span>&times;</span>
                   </button>
                 </div>
-                <div style={modalBodyStyle}>{props.children}</div>
+                <div style={modalBodyStyle}>
+                  <p>{message}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -97,5 +99,6 @@ export const Modal = ({ isShowing, close, title, ...props }) =>
 Modal.propTypes = {
   isShowing: PropTypes.bool.isRequired,
   close: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired
 };
